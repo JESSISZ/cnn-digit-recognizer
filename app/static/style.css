@@ -1,0 +1,205 @@
+:root {
+    --bg-main: #0e1117;
+    --bg-surface: #161b22;
+    --bg-surface-hover: #1f242c;
+    --border-color: #30363d;
+    --text-primary: #f0f6fc;
+    --text-muted: #8b949e;
+    --accent: #238636;
+    --accent-hover: #2ea043;
+    --secondary-btn: #21262d;
+    --secondary-btn-hover: #30363d;
+    --bar-bg: #21262d;
+    --bar-fill: #388bfd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+.canvas-card, .result-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+canvas {
+    background-color: #000000;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: crosshair;
+    touch-action: none;
+    display: block;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-btn);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-btn-hover);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.result-card h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.prediction-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+}
+
+.digit-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #58a6ff;
+    margin-bottom: 0.5rem;
+}
+
+.confidence-display {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.distribution-section h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.probabilities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.prob-row {
+    display: grid;
+    grid-template-columns: 20px 1fr 45px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.prob-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.prob-bar-container {
+    background-color: var(--bar-bg);
+    border-radius: 3px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.prob-bar-fill {
+    background-color: var(--bar-fill);
+    height: 100%;
+    width: 0%;
+    transition: width 0.25s ease;
+}
+
+.prob-bar-fill.active {
+    background-color: #3fb950;
+}
+
+.prob-val {
+    text-align: right;
+    color: var(--text-muted);
+}

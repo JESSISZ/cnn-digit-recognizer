@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Digit Recognizer</h1>
+            <p>Draw a single digit (0–9) on the canvas to run inference.</p>
+        </header>
+
+        <section class="workspace">
+            <div class="canvas-card">
+                <div class="canvas-wrapper">
+                    <canvas id="paintCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="action-buttons">
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    <button id="predictBtn" class="btn btn-primary">Predict</button>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h2>Prediction</h2>
+                <div class="prediction-highlight">
+                    <span id="predictedNumber" class="digit-display">-</span>
+                    <span id="confidenceScore" class="confidence-display">Confidence: --%</span>
+                </div>
+
+                <div class="distribution-section">
+                    <h3>Probabilities</h3>
+                    <div id="probabilitiesList" class="probabilities-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

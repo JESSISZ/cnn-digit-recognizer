@@ -24,7 +24,7 @@ if not os.path.exists(model_name):
 
 model = keras.models.load_model(model_name)
 
-@app.get("/")
+@app.get("/health")
 def health():
     return {"status" : "ok"}
 
@@ -37,5 +37,7 @@ def prediction(image : PredictRequest) -> dict:
     return {
         "number" : int(pred.argmax()),
         "confidence" : float(pred.max()),
+        "probabilities": pred[0].tolist()
     }
 
+app.mount("/", StaticFiles(directory= "app/static", html= True), "static")
