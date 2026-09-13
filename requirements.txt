@@ -1,0 +1,8 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+pillow>=10.2.0
+numpy>=1.26.0
+keras>=3.0.0
+tensorflow>=2.16.0
+huggingface_hub>=0.21.0
